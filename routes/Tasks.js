@@ -34,7 +34,7 @@ router.post("/create", (req, res, next) => {
         .catch((err) => next(err));
 });
 
-//delete
+// delete
 router.delete("/delete/:id", (req, res, next) => {
     Task.findByIdAndDelete(req.params.id, (err) => {
         if (err) {
@@ -55,12 +55,12 @@ router.patch("/update/:id", (req, res, next) => {
     })
 });
 
-//replace a document
+// ? REPLACE
 router.put("/replace/:id", (req, res, next) => {
-    const { description, dueDate, completed } = req.query;
-    Task.findByIdAndUpdate(req.params.id, { description, dueDate, completed }, { new: true }, (err, result) => {
+    const { description, dueDate, completed } = req.body;
+    Task.findByIdAndUpdate(req.params.id, { description, dueDate, completed }, { new: true }, (err) => {
         if (err) {
-            console.error(err);
+            next(err);
         }
         res.status(202).send(`Successfully replaced!`);
     });

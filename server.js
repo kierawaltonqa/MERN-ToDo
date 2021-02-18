@@ -1,20 +1,19 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require(`body-parser`);
+const bodyParser = require('body-parser');
 const createError = require(`http-errors`);
 
-// instantiate the application
+// instantiate my app 
 const app = express();
-
-// middleware
-app.use(cors);
+//middleware
+app.use(cors());
 app.use(bodyParser.json());
 
-//import all of the routes in crudToDos.js
-const productRoute = require('./routes/crudToDos');
+//import all of the routes in product.js
+const productRoute = require('./routes/Tasks');
 
 // .use method: lets us look for st at a specific path and have functions associated to it
-app.use("/todo", productRoute);
+app.use("/toDo", productRoute);
 
 //error handling
 app.use((req, res, next) => {

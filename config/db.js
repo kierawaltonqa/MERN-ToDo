@@ -3,13 +3,13 @@ const mongoose = require(`mongoose`);
 const { Schema, model } = mongoose;
 const { DB_URL, DB_NAME } = require('../config/consts.json');
 
-const toDoSchema = new Schema({
-    description: { type: String, required: true },
+const taskSchema = new Schema({
+    description: String,
     dueDate: String,
     completed: Boolean
 })
 
-const ToDo = model('ToDo', toDoSchema);
+const Task = model('Task', taskSchema);
 
 mongoose.connect(`mongodb://${DB_URL}/${DB_NAME}`, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if (err) {
@@ -19,4 +19,4 @@ mongoose.connect(`mongodb://${DB_URL}/${DB_NAME}`, { useNewUrlParser: true, useU
     }
 });
 
-module.exports = { "ToDo": ToDo };
+module.exports = { "Task": Task };

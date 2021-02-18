@@ -1,30 +1,30 @@
 `use strict`;
 const router = require('express').Router();
-const { ToDo } = require("../config/db");
+const { Task } = require("../config/db");
 
 // requests (CRUD)
 router.get("/getAll", (req, res, next) => {
-    ToDo.find((err, toDos) => {
+    Task.find((err, tasks) => {
         if (err) {
             next(err);
         }
-        res.send(toDos);
+        res.send(tasks);
     })
 });
 
 //read by id
 router.get("read/:id", (req, res, next) => {
-    ToDo.findById((err, toDos) => {
+    Task.findById((err, tasks) => {
         if (err) {
             next(err);
         }
-        res.send(toDos);
+        res.send(tasks);
     })
 })
 
 //create
 router.post("/create", (req, res, next) => {
-    const item = new ToDo(req.body);
+    const item = new Task(req.body);
     console.log(item);
     // saving it to the database and print result if successful, otherwise print the error
     item.save().then((result) => {
@@ -36,7 +36,7 @@ router.post("/create", (req, res, next) => {
 
 //delete
 router.delete("/delete/:id", (req, res, next) => {
-    ToDo.findByIdAndDelete(req.params.id, (err) => {
+    Task.findByIdAndDelete(req.params.id, (err) => {
         if (err) {
             next(err);
         } else {

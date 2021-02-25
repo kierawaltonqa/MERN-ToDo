@@ -1,7 +1,7 @@
 'use strict';
 const mongoose = require(`mongoose`);
 const { Schema, model } = mongoose;
-const { DB_URL, DB_NAME } = require('../config/consts.json');
+const { DB_URL, DB_NAME } = require('./consts.json');
 
 const taskSchema = new Schema({
     description: String,

@@ -1,25 +1,29 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AboutPage from './Components/AboutPage';
+import Footer from './Components/Footer';
 import HomePage from './Components/HomePage';
-import NavBar from './Components/NavBar';
+import Navigation from './Components/Navigation';
 import './Resources/App.css';
 
 
 function App() {
   return (
-
-    <Router>
-      <NavBar />
-      <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
-        <Route path="/about">
-          <AboutPage />
-        </Route>
-      </Switch>
-    </Router>
-
+    <div className="page-container">
+      <div className="content-wrap">
+        <Router>
+          <Navigation />
+          <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
+            <Route path="/about">
+              <AboutPage />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+      <Footer />
+    </div>
   );
 }
 

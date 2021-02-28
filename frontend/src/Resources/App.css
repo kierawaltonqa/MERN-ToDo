@@ -1,6 +1,37 @@
 body {
-  background-color: pink!important;
+  background-color:#D3D3D3!important;
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
   color:#222;
+}
+
+.NavBar {
+  margin: 4px;
+}
+
+.NavLink {
+  font-size: 200px !important;
+  color: black;
+}
+
+#sidebar{
+  min-height: 100vh; 
+  margin-left: 0px;
+}
+.main-footer{
+  color:white;
+  background-color: cadetblue;
+  padding-top: 3em;
+  position:relative;
+  bottom:0;
+  width:100%;
+}
+.page-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content-wrap{
+  flex:1;
+  
 }

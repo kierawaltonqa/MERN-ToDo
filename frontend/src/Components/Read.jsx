@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import { TODO_URL } from './CONSTS.json';
 import EachToDo from './EachToDo';
 
-//get states from parent class
+//get props from parent class
 const Read = ({ message, trigger }) => {
 
     const [toDoList, setToDoList] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState('');
 
+    // use effect if the message changes
     useEffect(() => {
         axios.get(`${TODO_URL}/getAll`)
             .then((response) => {

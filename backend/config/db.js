@@ -9,7 +9,16 @@ const taskSchema = new Schema({
     completed: Boolean
 })
 
+
+
 const Task = model('Task', taskSchema);
+
+const loginSchema = new Schema({
+    username: { type: String, required: true },
+    password: { type: String, required: true }
+})
+
+const Login = model('Login', loginSchema)
 
 mongoose.connect(`mongodb://${DB_URL}/${DB_NAME}`, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if (err) {
@@ -19,4 +28,7 @@ mongoose.connect(`mongodb://${DB_URL}/${DB_NAME}`, { useNewUrlParser: true, useU
     }
 });
 
-module.exports = { "Task": Task };
+module.exports = {
+    "Task": Task,
+    "Login": Login
+};

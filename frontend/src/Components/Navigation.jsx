@@ -12,8 +12,9 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    NavbarText
+    NavbarText, Button, Form, FormGroup, Label, Input, FormText
 } from 'reactstrap';
+
 
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +33,6 @@ const Navigation = (props) => {
                         <NavItem>
                             <NavLink href='/about' >About</NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="http://github.com/kierawaltonqa" >Github</NavLink>
-                        </NavItem>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Movies
@@ -51,6 +49,25 @@ const Navigation = (props) => {
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle nav caret>
+                                Bookings
+                            </DropdownToggle>
+                            <DropdownMenu right>
+                                <DropdownItem>
+                                    Screens
+                                </DropdownItem>
+                                <DropdownItem>
+                                    Tickets
+                                </DropdownItem>
+                                <DropdownItem>
+                                    Payment
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
+                        <NavItem>
+                            <NavLink href='/discussion' >Discussion</NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>
